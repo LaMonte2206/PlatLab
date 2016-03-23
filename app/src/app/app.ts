@@ -1,5 +1,6 @@
 import {App, events, register, routing, web} from 'platypus';
 import HomeViewControl from '../viewcontrols/home/home.vc';
+import RegisterViewControl from '../viewcontrols/register/register.vc';
 
 export default class MyApp extends App {
     constructor(router: routing.Router, config: web.IBrowserConfig) {
@@ -7,9 +8,10 @@ export default class MyApp extends App {
 
 		config.routingType = config.STATE;
 
-        router.configure([
-            { pattern: '', view: HomeViewControl }
-        ]);
+       router.configure([
+    { pattern: '', view: HomeViewControl },
+    { pattern: 'register', view: RegisterViewControl }
+]);
     }
 
     error(ev: events.ErrorEvent<Error>): void {
